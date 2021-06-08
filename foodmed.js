@@ -1,6 +1,4 @@
 /*
-Name: Tzuang, Victor
-Assignment: Final Project
 
 Description:
 
@@ -10,36 +8,6 @@ NIH and displays the result to the user.
 Specifically, the website queries for FDA
 food recalls, medication descriptions,
 medication pill images, and molecule images.
-
-To query the food recalls and medication
-descriptions, the website queries openFDA. 
-Meanwhile, the medication pill images and
-molecule images were queried from the NIH's
-RxImage API, ChemIDPlus API, and PubChem API. 
-
-After the website loads, the user is prompted
-to enter a search term. Depending on which radio
-button is selected (food, medication, pill image, molecule image),
-a different fetch query is initiated after the
-user clicks the Submit button. If no search
-term is entered, the program displays a message
-asking the user to enter in a search term. If the
-fetch returns no results, then this is also displayed.
-The user also has the option to limit the number of 
-search results returned.
-
-From this project, I learned alot about using APIs and
-saw how different websites have different objects that
-are returned from API calls. Even within one website, such
-as the FDA medication website, different types of medications
-would return different objects. For example, over-the-counter
-medications such as acetaminophen would return a object
-with different fields, and would need to be processed differently
-than an object returned from a prescription medication. Also,
-it was very interesting learning how all molecules have an
-InChIKey assigned to them, which allowed the user to look up a 
-molecule by name, then retrieve the InChIKey from one API, then
-use that InChIKey to obtain the image of the molecule.
 
 */
 
