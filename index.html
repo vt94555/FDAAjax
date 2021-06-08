@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <!--
+
+    Name: Tzuang, Victor
+    Assignment: Final Project
+
+    Description:
+
+    The goal of this project is to create a 
+    website that fetches data from the FDA and
+    NIH and displays the result to the user. 
+    Specifically, the website queries for FDA
+    food recalls, medication descriptions,
+    medication pill images, and molecule images.
+
+    To query the food recalls and medication
+    descriptions, the website queries openFDA. 
+    Meanwhile, the medication pill images and
+    molecule images were queried from the NIH's
+    RxImage API, ChemIDPlus API, and PubChem API. 
+
+    After the website loads, the user is prompted
+    to enter a search term. Depending on which radio
+    button is selected (food, medication, pill image, molecule image),
+    a different fetch query is initiated after the
+    user clicks the Submit button. If no search
+    term is entered, the program displays a message
+    asking the user to enter in a search term. If the
+    fetch returns no results, then this is also displayed.
+    The user also has the option to limit the number of 
+    search results returned.
+
+    From this project, I learned alot about using APIs and
+    saw how different websites have different objects that
+    are returned from API calls. Even within one website, such
+    as the FDA medication website, different types of medications
+    would return different objects. For example, over-the-counter
+    medications such as acetaminophen would return a object
+    with different fields, and would need to be processed differently
+    than an object returned from a prescription medication. Also,
+    it was very interesting learning how all molecules have an
+    InChIKey assigned to them, which allowed the user to look up a 
+    molecule by name, then retrieve the InChIKey from one API, then
+    use that InChIKey to obtain the image of the molecule.
+
+    -->
+
+    <head>
+        <title>Tzuang,Victor</title>
+        <link href="foodmed.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="menu">
+            <h2>FDA Food Recalls & Medication Lookup</h2>
+            <div>
+                <label for="search_term">Enter a search term&nbsp;</label>
+                <input type="text" id="search_term" name="search_term" placeholder="Enter food name, eg ice cream">
+            </div>
+            <div id="suggestions">
+                Or click a suggestion: 
+                <div class="food">
+                    <a href="#" id="rice">Rice</a>&nbsp;<a href="#" id="pasta">Pasta</a>&nbsp;<a href="#" id="tea">Tea</a>
+                </div>
+                <div class="med">
+                    <a href="#" id="atorvastatin">Atorvastatin</a>&nbsp;<a href="#" id="lisinopril">Lisinopril</a>&nbsp;<a href="#" id="januvia">Januvia</a>&nbsp;<a href="#" class="molecule" id="glucose">Glucose</a>
+                </div>
+                
+                
+            </div>
+            <div>
+                <p>Select a category:</p>
+                <input type="radio" name="querytype" id="food" value="food" checked>
+                <label for="food">Food recall notices</label>
+                <input type="radio" name="querytype" id="med" value="med">
+                <label for="med">Medication name</label>
+                <input type="radio" name="querytype" id="pill_picture" value="pill_picture">
+                <label for="pill_picture">Pill picture</label>
+                <input type="radio" name="querytype" id="molecule_picture" value="molecule_picture">
+                <label for="molecule_picture">Molecule picture</label>
+            
+            </div>
+            <div class="limit">
+                <label for="limit">Limit results to:</label>
+                <select name="limit" id="limit">    
+                    <option value="10" checked>10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div>
+                <label>&nbsp;</label>
+                <input type="button" id="submit" name="submit" value="Submit">
+            </div>
+        </div>
+        
+        <div>
+            <span id="display"></span>
+        </div>
+            
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script src="foodmed.js"></script>
+    </body>
+</html>
+
